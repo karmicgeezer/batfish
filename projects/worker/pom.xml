@@ -9,7 +9,7 @@
     <version>0.36.0</version>
   </parent>
 
-  <artifactId>batfish</artifactId>
+  <artifactId>worker</artifactId>
 
   <packaging>jar</packaging>
 

@@ -97,11 +97,6 @@
   <dependencies>
     <dependency>
       <groupId>org.batfish</groupId>
-      <artifactId>batfish</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.batfish</groupId>
       <artifactId>batfish-client</artifactId>
     </dependency>
 
@@ -118,6 +113,11 @@
     <dependency>
       <groupId>org.batfish</groupId>
       <artifactId>question</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.batfish</groupId>
+      <artifactId>worker</artifactId>
     </dependency>
 
     <dependency>
@@ -151,14 +151,14 @@
     <!-- Test scope dependencies. -->
     <dependency>
       <groupId>org.batfish</groupId>
-      <artifactId>batfish</artifactId>
+      <artifactId>batfish-common-protocol</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>org.batfish</groupId>
-      <artifactId>batfish-common-protocol</artifactId>
+      <artifactId>worker</artifactId>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>

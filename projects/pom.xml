@@ -590,12 +590,6 @@
 
       <dependency>
         <groupId>org.batfish</groupId>
-        <artifactId>batfish</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.batfish</groupId>
         <artifactId>batfish-client</artifactId>
         <version>${project.version}</version>
       </dependency>
@@ -615,7 +609,7 @@
 
       <dependency>
         <groupId>org.batfish</groupId>
-        <artifactId>batfish</artifactId>
+        <artifactId>worker</artifactId>
         <classifier>tests</classifier>
         <version>${project.version}</version>
       </dependency>
@@ -635,6 +629,12 @@
       <dependency>
         <groupId>org.batfish</groupId>
         <artifactId>question</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.batfish</groupId>
+        <artifactId>worker</artifactId>
         <version>${project.version}</version>
       </dependency>
 
@@ -981,11 +981,11 @@
 
   <modules>
     <module>allinone</module>
-    <module>batfish</module>
     <module>batfish-client</module>
     <module>batfish-common-protocol</module>
     <module>build-tools</module>
     <module>coordinator</module>
     <module>question</module>
+    <module>worker</module>
   </modules>
 </project>
