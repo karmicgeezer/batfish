@@ -6,9 +6,9 @@ export PROJECTS_PATH="$BATFISH_ROOT/projects"
 # Use Maven to print the current Batfish java version
 export BATFISH_VERSION="$(grep -1 batfish-parent "${PROJECTS_PATH}/pom.xml" | grep version | sed 's/[<>]/|/g' | cut -f3 -d\|)"
 
-export BATFISH_PATH="$PROJECTS_PATH/batfish"
+export BATFISH_PATH="$PROJECTS_PATH/worker"
 export BATFISH_TEST_RIG_PATH="$BATFISH_ROOT/networks"
-export BATFISH="$BATFISH_PATH/batfish"
+export BATFISH="$BATFISH_PATH/worker"
 
 export BATFISH_CLIENT_PATH="$PROJECTS_PATH/batfish-client"
 export BATFISH_CLIENT="$BATFISH_CLIENT_PATH/batfish-client"
@@ -70,7 +70,7 @@ export -f batfish_build
 _batfish_build() {
    _pre_build || return 1
    mvn install -pl batfish -am || return 1
-   if [ "$BATFISH_COMPLETION_FILE" -ot "$BATFISH_PATH/target/batfish-${BATFISH_VERSION}.jar" -a -e "$BATFISH_PATH/target/batfish-${BATFISH_VERSION}.jar" ]; then
+   if [ "$BATFISH_COMPLETION_FILE" -ot "$BATFISH_PATH/target/worker-${BATFISH_VERSION}.jar" -a -e "$BATFISH_PATH/target/worker-${BATFISH_VERSION}.jar" ]; then
       echo -n "Generating bash completion file (after batfish_build) ..."
       BATFISH_PRINT_CMDLINE=no batfish -help | grep -o '^ *-[a-zA-Z0-9]*' | tr -d ' ' | tr '\n' ' ' > "$BATFISH_COMPLETION_FILE"
       . "${BATFISH_TOOLS_PATH}/completion-batfish.sh"
@@ -87,7 +87,7 @@ batfish_build_all() {
       . "${BATFISH_TOOLS_PATH}/completion-allinone.sh"
       echo "OK"
    fi
-   if [ "$BATFISH_COMPLETION_FILE" -ot "$BATFISH_PATH/target/batfish-${BATFISH_VERSION}.jar" -a -e "$BATFISH_PATH/target/batfish-${BATFISH_VERSION}.jar" ]; then
+   if [ "$BATFISH_COMPLETION_FILE" -ot "$BATFISH_PATH/target/worker-${BATFISH_VERSION}.jar" -a -e "$BATFISH_PATH/target/worker-${BATFISH_VERSION}.jar" ]; then
       echo -n "Generating bash completion file for batfish (via batfish_build_all) ..."
       BATFISH_PRINT_CMDLINE=no batfish -help | grep -o '^ *-[a-zA-Z0-9]*' | tr -d ' ' | tr '\n' ' ' > "$BATFISH_COMPLETION_FILE"
       echo "OK"
@@ -184,7 +184,7 @@ batfish_javadocs() {
    echo "Generating batfish project javadocs"
    batfish_build_all doc
    cp -r ${COMMON_PATH}/doc ${BATFISH_ROOT}/doc/batfish-common-protocol/
-   cp -r ${BATFISH_PATH}/doc ${BATFISH_ROOT}/doc/batfish/
+   cp -r ${BATFISH_PATH}/doc ${BATFISH_ROOT}/doc/worker/
    cp -r ${BATFISH_CLIENT_PATH}/doc ${BATFISH_ROOT}/doc/batfish-client/
    cp -r ${COORDINATOR_PATH}/doc ${BATFISH_ROOT}/doc/coordinator/
    cp -r ${ALLINONE_PATH}/doc ${BATFISH_ROOT}/doc/allinone/
