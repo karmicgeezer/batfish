@@ -3,15 +3,15 @@ package(default_visibility = ["//visibility:public"])
 load("@batfish//skylark:junit.bzl", "junit_tests")
 
 java_binary(
-    name = "batfish_main",
+    name = "worker_main",
     main_class = "org.batfish.main.Driver",
     runtime_deps = [
-        ":batfish",
+        ":worker",
     ],
 )
 
 java_library(
-    name = "batfish",
+    name = "worker",
     srcs = glob([
         "src/main/**/*.java",
     ]),
@@ -23,20 +23,20 @@ java_library(
     ],
     deps = [
         "//projects/batfish-common-protocol:common",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/cisco",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/flatvyos",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/iptables",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/juniper",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/mrv",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/palo_alto",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/eos",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/ios",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/routing_table/nxos",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/vyos",
         "//projects/lib/bdd",
         "//projects/lib/z3",
         "//projects/question",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/cisco",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/flatjuniper",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/flatvyos",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/iptables",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/juniper",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/mrv",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/palo_alto",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/routing_table/eos",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/routing_table/ios",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/routing_table/nxos",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/vyos",
         "@antlr4_runtime//:compile",
         "@auto_service//:compile",
         "@commons_collections4//:compile",
@@ -64,7 +64,7 @@ java_library(
 )
 
 java_library(
-    name = "batfish_testlib",
+    name = "worker_testlib",
     testonly = True,
     srcs = glob(
         [
@@ -73,12 +73,12 @@ java_library(
         exclude = ["src/test/**/*Test.java"],
     ),
     deps = [
-        ":batfish",
+        ":worker",
         "//projects/batfish-common-protocol:common",
         "//projects/batfish-common-protocol:common_testlib",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper",
         "//projects/lib/bdd",
         "//projects/lib/z3",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/flatjuniper",
         "@antlr4_runtime//:compile",
         "@commons_collections4//:compile",
         "@guava//:compile",
@@ -89,7 +89,7 @@ java_library(
 )
 
 junit_tests(
-    name = "batfish_tests",
+    name = "worker_tests",
     size = "medium",
     srcs = glob([
         "src/test/**/*Test.java",
@@ -98,13 +98,13 @@ junit_tests(
         "src/test/resources/**",
     ]),
     deps = [
-        ":batfish",
-        ":batfish_testlib",
+        ":worker",
+        ":worker_testlib",
         "//projects/batfish-common-protocol:common",
         "//projects/batfish-common-protocol:common_testlib",
-        "//projects/batfish/src/main/antlr4/org/batfish/grammar/flatjuniper",
         "//projects/lib/bdd",
         "//projects/lib/z3",
+        "//projects/worker/src/main/antlr4/org/batfish/grammar/flatjuniper",
         "@antlr4_runtime//:compile",
         "@guava//:compile",
         "@hamcrest//:compile",
