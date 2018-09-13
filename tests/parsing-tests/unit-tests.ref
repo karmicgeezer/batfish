@@ -58645,7 +58645,7 @@
         "configs/cisco_line" : { },
         "configs/cisco_logging" : { },
         "configs/cisco_mac_acl" : {
-          "mac acl" : {
+          "mac access-list" : {
             "1199" : {
               "definitionLines" : [
                 5
@@ -60376,7 +60376,7 @@
           }
         },
         "configs/mac_access_list" : {
-          "mac acl" : {
+          "mac access-list" : {
             "STPDENY" : {
               "definitionLines" : [
                 13,
@@ -61109,7 +61109,7 @@
           }
         },
         "configs/arista_misc" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "abc" : {
               "management telnet ip access-group" : [
                 36
@@ -61369,7 +61369,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "fleep-acl" : {
               "interface ip inband access-group" : [
                 130
@@ -61378,7 +61378,7 @@
           }
         },
         "configs/cadant_isis" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "blah-acl-99" : {
               "router isis distribute-list acl" : [
                 15
@@ -61392,7 +61392,7 @@
           }
         },
         "configs/cadant_rip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "blah-std-acl" : {
               "router rip distribute-list" : [
                 6
@@ -61417,7 +61417,7 @@
           }
         },
         "configs/cadant_snmp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "52" : {
               "snmp server community ipv4 acl" : [
                 7
@@ -61667,7 +61667,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "myvpnacl" : {
               "crypto map ipsec-isakmp acl" : [
                 235
@@ -61875,7 +61875,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "167" : {
               "interface ip verify access-list" : [
                 129
@@ -61912,7 +61912,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "1" : {
               "interface igmp access-group acl" : [
                 78
@@ -61947,7 +61947,7 @@
           }
         },
         "configs/cisco_ip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "wccp-cachelist" : {
               "ip wccp group-list" : [
                 11
@@ -61985,7 +61985,7 @@
           }
         },
         "configs/cisco_line" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "40" : {
               "line access-class list" : [
                 6,
@@ -62003,7 +62003,7 @@
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "ipv6-vty-acl" : {
               "line access-class ipv6 list" : [
                 60
@@ -62041,7 +62041,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "cops-acl" : {
               "cops listener access-list" : [
                 42
@@ -62071,7 +62071,7 @@
           }
         },
         "configs/cisco_ntp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ntp-peer-group" : {
               "ntp access-group" : [
                 4
@@ -62144,7 +62144,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "aclin" : {
               "router ospf distribute-list in" : [
                 48
@@ -62180,7 +62180,7 @@
           }
         },
         "configs/cisco_pim" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "foobar" : {
               "pim rp-address" : [
                 7
@@ -62316,7 +62316,7 @@
           }
         },
         "configs/cisco_rip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "some-ACL" : {
               "router rip distribute-list" : [
                 10,
@@ -62345,7 +62345,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "test" : {
               "route-map match ipv4 access-list" : [
                 26
@@ -62366,7 +62366,7 @@
           }
         },
         "configs/cisco_snmp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "1" : {
               "snmp server community ipv4 acl" : [
                 9
@@ -62405,7 +62405,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "8" : {
               "snmp server file transfer acl" : [
                 67
@@ -62415,7 +62415,7 @@
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "dummyacl" : {
               "snmp server community ipv6 acl" : [
                 15
@@ -62549,14 +62549,14 @@
           }
         },
         "configs/foundry_misc" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "blib" : {
               "ssh ipv4 access-list" : [
                 31
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "blob" : {
               "ssh ipv6 access-list" : [
                 32
@@ -62723,7 +62723,7 @@
           }
         },
         "configs/ios_xr_multicast" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "MSDP_filter" : {
               "msdp peer sa-list" : [
                 29,
@@ -62735,7 +62735,7 @@
           }
         },
         "configs/ios_xr_multipart" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "GNS-VTY-ACCESS" : {
               "ssh ipv4 access-list" : [
                 31
@@ -62909,14 +62909,14 @@
           }
         },
         "configs/ios_xr_ssh" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ACL99" : {
               "ssh ipv4 access-list" : [
                 6
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "ipv6-vty-acl" : {
               "ssh ipv6 access-list" : [
                 6
@@ -63203,7 +63203,7 @@
           }
         },
         "configs/named_and_numbered_lists" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "1" : {
               "route-map match ipv4 access-list" : [
                 5
@@ -63511,7 +63511,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ABC_def.gh_vlan789_out_20000101" : {
               "interface outgoing ip access-list" : [
                 5
@@ -63527,7 +63527,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ABC_def.gh_vlan789_out_20000101" : {
               "interface outgoing ip access-list" : [
                 5
@@ -63547,7 +63547,7 @@
           }
         },
         "configs/arista_misc" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "abc" : {
               "management telnet ip access-group" : [
                 36
@@ -63667,7 +63667,7 @@
           }
         },
         "configs/cadant_interface" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "fleep-acl" : {
               "interface ip inband access-group" : [
                 130
@@ -63676,7 +63676,7 @@
           }
         },
         "configs/cadant_isis" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "blah-acl-99" : {
               "router isis distribute-list acl" : [
                 15
@@ -63690,7 +63690,7 @@
           }
         },
         "configs/cadant_rip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "blah-std-acl" : {
               "router rip distribute-list" : [
                 6
@@ -63715,7 +63715,7 @@
           }
         },
         "configs/cadant_snmp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "52" : {
               "snmp server community ipv4 acl" : [
                 7
@@ -63828,7 +63828,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "myvpnacl" : {
               "crypto map ipsec-isakmp acl" : [
                 235
@@ -63881,7 +63881,7 @@
           }
         },
         "configs/cisco_interface" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "167" : {
               "interface ip verify access-list" : [
                 129
@@ -63913,7 +63913,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "1" : {
               "interface igmp access-group acl" : [
                 78
@@ -63948,7 +63948,7 @@
           }
         },
         "configs/cisco_ip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "wccp-cachelist" : {
               "ip wccp group-list" : [
                 11
@@ -63962,7 +63962,7 @@
           }
         },
         "configs/cisco_line" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "40" : {
               "line access-class list" : [
                 6,
@@ -63980,7 +63980,7 @@
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "ipv6-vty-acl" : {
               "line access-class ipv6 list" : [
                 60
@@ -64013,7 +64013,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "cops-acl" : {
               "cops listener access-list" : [
                 42
@@ -64029,7 +64029,7 @@
           }
         },
         "configs/cisco_ntp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ntp-peer-group" : {
               "ntp access-group" : [
                 4
@@ -64059,7 +64059,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "aclin" : {
               "router ospf distribute-list in" : [
                 48
@@ -64095,7 +64095,7 @@
           }
         },
         "configs/cisco_pim" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "foobar" : {
               "pim rp-address" : [
                 7
@@ -64231,7 +64231,7 @@
           }
         },
         "configs/cisco_rip" : {
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "some-ACL" : {
               "router rip distribute-list" : [
                 10,
@@ -64250,7 +64250,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "test" : {
               "route-map match ipv4 access-list" : [
                 26
@@ -64271,7 +64271,7 @@
           }
         },
         "configs/cisco_snmp" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "1" : {
               "snmp server community ipv4 acl" : [
                 9
@@ -64310,7 +64310,7 @@
               ]
             }
           },
-          "ipv4/6 acl" : {
+          "ipv4/6 access-list" : {
             "8" : {
               "snmp server file transfer acl" : [
                 67
@@ -64320,7 +64320,7 @@
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "dummyacl" : {
               "snmp server community ipv6 acl" : [
                 15
@@ -64394,14 +64394,14 @@
           }
         },
         "configs/foundry_misc" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "blib" : {
               "ssh ipv4 access-list" : [
                 31
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "blob" : {
               "ssh ipv6 access-list" : [
                 32
@@ -64512,7 +64512,7 @@
           }
         },
         "configs/ios_xr_multicast" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "MSDP_filter" : {
               "msdp peer sa-list" : [
                 29,
@@ -64524,7 +64524,7 @@
           }
         },
         "configs/ios_xr_multipart" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "GNS-VTY-ACCESS" : {
               "ssh ipv4 access-list" : [
                 31
@@ -64698,14 +64698,14 @@
           }
         },
         "configs/ios_xr_ssh" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ACL99" : {
               "ssh ipv4 access-list" : [
                 6
               ]
             }
           },
-          "ipv6 acl" : {
+          "ipv6 access-list" : {
             "ipv6-vty-acl" : {
               "ssh ipv6 access-list" : [
                 6
@@ -64832,7 +64832,7 @@
           }
         },
         "configs/named_and_numbered_lists" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "1" : {
               "route-map match ipv4 access-list" : [
                 5
@@ -65045,7 +65045,7 @@
           }
         },
         "configs/variables" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ABC_def.gh_vlan789_out_20000101" : {
               "interface outgoing ip access-list" : [
                 5
@@ -65054,7 +65054,7 @@
           }
         },
         "configs/variables_dos" : {
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "ABC_def.gh_vlan789_out_20000101" : {
               "interface outgoing ip access-list" : [
                 5

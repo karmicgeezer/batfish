@@ -443,7 +443,7 @@
             ]
           }
         },
-        "ipv4 acl" : {
+        "ipv4 access-list" : {
           "LIMIT_PEER" : {
             "interface incoming ip access-list" : [
               155

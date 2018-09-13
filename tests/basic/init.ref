@@ -1737,7 +1737,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 139,
@@ -1833,7 +1833,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 143,
@@ -1963,7 +1963,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 165
@@ -2060,7 +2060,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 161
@@ -2152,7 +2152,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "blocktelnet" : {
               "interface incoming ip access-list" : [
                 75,
@@ -2248,7 +2248,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "102" : {
               "route-map match ipv4 access-list" : [
                 127
@@ -2313,7 +2313,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "105" : {
               "route-map match ipv4 access-list" : [
                 123
@@ -2372,7 +2372,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "105" : {
               "route-map match ipv4 access-list" : [
                 123
@@ -2430,7 +2430,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 147
@@ -2516,7 +2516,7 @@
               ]
             }
           },
-          "ipv4 acl" : {
+          "ipv4 access-list" : {
             "101" : {
               "route-map match ipv4 access-list" : [
                 145

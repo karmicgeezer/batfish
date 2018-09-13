@@ -56,7 +56,7 @@
       },
       {
         "File_Name" : "configs/arista_misc",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "abc",
         "Context" : "management telnet ip access-group",
         "Lines" : {
@@ -261,7 +261,7 @@
       },
       {
         "File_Name" : "configs/cadant_interface",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "fleep-acl",
         "Context" : "interface ip inband access-group",
         "Lines" : {
@@ -273,7 +273,7 @@
       },
       {
         "File_Name" : "configs/cadant_isis",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "blah-acl-99",
         "Context" : "router isis distribute-list acl",
         "Lines" : {
@@ -285,7 +285,7 @@
       },
       {
         "File_Name" : "configs/cadant_isis",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "blah-ipv6-access-list",
         "Context" : "router isis distribute-list acl",
         "Lines" : {
@@ -297,7 +297,7 @@
       },
       {
         "File_Name" : "configs/cadant_rip",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "blah-std-acl",
         "Context" : "router rip distribute-list",
         "Lines" : {
@@ -333,7 +333,7 @@
       },
       {
         "File_Name" : "configs/cadant_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "52",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -537,7 +537,7 @@
       },
       {
         "File_Name" : "configs/cisco_crypto",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "myvpnacl",
         "Context" : "crypto map ipsec-isakmp acl",
         "Lines" : {
@@ -549,7 +549,7 @@
       },
       {
         "File_Name" : "configs/cisco_crypto",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "someacl",
         "Context" : "crypto map ipsec-isakmp acl",
         "Lines" : {
@@ -645,7 +645,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "167",
         "Context" : "interface ip verify access-list",
         "Lines" : {
@@ -657,7 +657,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "310-systems",
         "Context" : "interface outgoing ip access-list",
         "Lines" : {
@@ -669,7 +669,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ag1",
         "Context" : "interface incoming ip access-list",
         "Lines" : {
@@ -681,7 +681,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ag2",
         "Context" : "interface outgoing ip access-list",
         "Lines" : {
@@ -693,7 +693,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "def",
         "Context" : "ip nat source dynamic access-list",
         "Lines" : {
@@ -705,7 +705,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "mynatacl",
         "Context" : "ip nat destination acl",
         "Lines" : {
@@ -717,7 +717,7 @@
       },
       {
         "File_Name" : "configs/cisco_interface",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "1",
         "Context" : "interface igmp access-group acl",
         "Lines" : {
@@ -777,7 +777,7 @@
       },
       {
         "File_Name" : "configs/cisco_ip",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "wccp-cachelist",
         "Context" : "ip wccp group-list",
         "Lines" : {
@@ -789,7 +789,7 @@
       },
       {
         "File_Name" : "configs/cisco_ip",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "wccp-redir",
         "Context" : "ip wccp redirect-list",
         "Lines" : {
@@ -801,7 +801,7 @@
       },
       {
         "File_Name" : "configs/cisco_line",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "40",
         "Context" : "line access-class list",
         "Lines" : {
@@ -814,7 +814,7 @@
       },
       {
         "File_Name" : "configs/cisco_line",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "99",
         "Context" : "line access-class list",
         "Lines" : {
@@ -826,7 +826,7 @@
       },
       {
         "File_Name" : "configs/cisco_line",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "vty-acl",
         "Context" : "line access-class list",
         "Lines" : {
@@ -838,7 +838,7 @@
       },
       {
         "File_Name" : "configs/cisco_line",
-        "Struct_Type" : "ipv6 acl",
+        "Struct_Type" : "ipv6 access-list",
         "Ref_Name" : "ipv6-vty-acl",
         "Context" : "line access-class ipv6 list",
         "Lines" : {
@@ -898,7 +898,7 @@
       },
       {
         "File_Name" : "configs/cisco_misc",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "cops-acl",
         "Context" : "cops listener access-list",
         "Lines" : {
@@ -922,7 +922,7 @@
       },
       {
         "File_Name" : "configs/cisco_ntp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ntp-peer-group",
         "Context" : "ntp access-group",
         "Lines" : {
@@ -970,7 +970,7 @@
       },
       {
         "File_Name" : "configs/cisco_ospf",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "aclin",
         "Context" : "router ospf distribute-list in",
         "Lines" : {
@@ -982,7 +982,7 @@
       },
       {
         "File_Name" : "configs/cisco_ospf",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "aclout",
         "Context" : "router ospf distribute-list out",
         "Lines" : {
@@ -1042,7 +1042,7 @@
       },
       {
         "File_Name" : "configs/cisco_pim",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "foobar",
         "Context" : "pim rp-address",
         "Lines" : {
@@ -1054,7 +1054,7 @@
       },
       {
         "File_Name" : "configs/cisco_pim",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "foobarmap",
         "Context" : "pim rp-address",
         "Lines" : {
@@ -1330,7 +1330,7 @@
       },
       {
         "File_Name" : "configs/cisco_rip",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "some-ACL",
         "Context" : "router rip distribute-list",
         "Lines" : {
@@ -1357,7 +1357,7 @@
       },
       {
         "File_Name" : "configs/cisco_route_map",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "test",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -1393,7 +1393,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "1",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1405,7 +1405,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "2",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1418,7 +1418,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "customer-snmp",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1430,7 +1430,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "dummyacl",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1442,7 +1442,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "snmp-acl",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1455,7 +1455,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "snmp-arpa-acl",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1467,7 +1467,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "to-VTY",
         "Context" : "snmp server community ipv4 acl",
         "Lines" : {
@@ -1479,7 +1479,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "8",
         "Context" : "snmp server file transfer acl",
         "Lines" : {
@@ -1491,7 +1491,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv4/6 acl",
+        "Struct_Type" : "ipv4/6 access-list",
         "Ref_Name" : "8",
         "Context" : "snmp server tftp-server list",
         "Lines" : {
@@ -1503,7 +1503,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv6 acl",
+        "Struct_Type" : "ipv6 access-list",
         "Ref_Name" : "dummyacl",
         "Context" : "snmp server community ipv6 acl",
         "Lines" : {
@@ -1515,7 +1515,7 @@
       },
       {
         "File_Name" : "configs/cisco_snmp",
-        "Struct_Type" : "ipv6 acl",
+        "Struct_Type" : "ipv6 access-list",
         "Ref_Name" : "to-VTY",
         "Context" : "snmp server community ipv6 acl",
         "Lines" : {
@@ -1623,7 +1623,7 @@
       },
       {
         "File_Name" : "configs/foundry_misc",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "blib",
         "Context" : "ssh ipv4 access-list",
         "Lines" : {
@@ -1635,7 +1635,7 @@
       },
       {
         "File_Name" : "configs/foundry_misc",
-        "Struct_Type" : "ipv6 acl",
+        "Struct_Type" : "ipv6 access-list",
         "Ref_Name" : "blob",
         "Context" : "ssh ipv6 access-list",
         "Lines" : {
@@ -1821,7 +1821,7 @@
       },
       {
         "File_Name" : "configs/ios_xr_multicast",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "MSDP_filter",
         "Context" : "msdp peer sa-list",
         "Lines" : {
@@ -1836,7 +1836,7 @@
       },
       {
         "File_Name" : "configs/ios_xr_multipart",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "GNS-VTY-ACCESS",
         "Context" : "ssh ipv4 access-list",
         "Lines" : {
@@ -2224,7 +2224,7 @@
       },
       {
         "File_Name" : "configs/ios_xr_ssh",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ACL99",
         "Context" : "ssh ipv4 access-list",
         "Lines" : {
@@ -2236,7 +2236,7 @@
       },
       {
         "File_Name" : "configs/ios_xr_ssh",
-        "Struct_Type" : "ipv6 acl",
+        "Struct_Type" : "ipv6 access-list",
         "Ref_Name" : "ipv6-vty-acl",
         "Context" : "ssh ipv6 access-list",
         "Lines" : {
@@ -2437,7 +2437,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "1",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2449,7 +2449,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "2",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2461,7 +2461,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "4",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2473,7 +2473,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "456def",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2485,7 +2485,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "5",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2497,7 +2497,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "95qrs5",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2509,7 +2509,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "a4",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2521,7 +2521,7 @@
       },
       {
         "File_Name" : "configs/named_and_numbered_lists",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "abc123",
         "Context" : "route-map match ipv4 access-list",
         "Lines" : {
@@ -2833,7 +2833,7 @@
       },
       {
         "File_Name" : "configs/variables",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ABC_def.gh_vlan789_out_20000101",
         "Context" : "interface outgoing ip access-list",
         "Lines" : {
@@ -2845,7 +2845,7 @@
       },
       {
         "File_Name" : "configs/variables_dos",
-        "Struct_Type" : "ipv4 acl",
+        "Struct_Type" : "ipv4 access-list",
         "Ref_Name" : "ABC_def.gh_vlan789_out_20000101",
         "Context" : "interface outgoing ip access-list",
         "Lines" : {

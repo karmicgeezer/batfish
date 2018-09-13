@@ -769,7 +769,7 @@
       },
       {
         "File_Name" : "configs/cisco_mac_acl",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "1199",
         "Lines" : {
           "filename" : "configs/cisco_mac_acl",
@@ -780,7 +780,7 @@
       },
       {
         "File_Name" : "configs/cisco_mac_acl",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "700",
         "Lines" : {
           "filename" : "configs/cisco_mac_acl",
@@ -791,7 +791,7 @@
       },
       {
         "File_Name" : "configs/cisco_mac_acl",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "copp-system-p-acl-mac-cdp-udld-vtp",
         "Lines" : {
           "filename" : "configs/cisco_mac_acl",
@@ -2226,7 +2226,7 @@
       },
       {
         "File_Name" : "configs/mac_access_list",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "STPDENY",
         "Lines" : {
           "filename" : "configs/mac_access_list",
@@ -2240,7 +2240,7 @@
       },
       {
         "File_Name" : "configs/mac_access_list",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "filtermac",
         "Lines" : {
           "filename" : "configs/mac_access_list",
@@ -2251,7 +2251,7 @@
       },
       {
         "File_Name" : "configs/mac_access_list",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "ipmi_test",
         "Lines" : {
           "filename" : "configs/mac_access_list",
@@ -2264,7 +2264,7 @@
       },
       {
         "File_Name" : "configs/mac_access_list",
-        "Struct_Type" : "mac acl",
+        "Struct_Type" : "mac access-list",
         "Struct_Name" : "permitCDP",
         "Lines" : {
           "filename" : "configs/mac_access_list",
