@@ -48,6 +48,10 @@ public interface IdResolver {
   @Nonnull
   NetworkId getNetworkId(String network);
 
+  /** Retrieve the current {@link NodeRolesDataId} for {@code networkId}. */
+  @Nonnull
+  NodeRolesDataId getNodeRolesDataId(NetworkId networkId);
+
   /**
    * Retrieve the {@link QuestionId} assigned to {@code question} under {@code networkId} and {@code
    * analysisId}. If {@code analysisId} is {@code null}, returns the mapping for an ad-hoc question.

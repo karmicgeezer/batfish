@@ -169,6 +169,7 @@ import org.batfish.identifiers.FileBasedIdResolver;
 import org.batfish.identifiers.IdResolver;
 import org.batfish.identifiers.IssueSettingsId;
 import org.batfish.identifiers.NetworkId;
+import org.batfish.identifiers.NodeRolesDataId;
 import org.batfish.identifiers.QuestionId;
 import org.batfish.identifiers.QuestionSettingsId;
 import org.batfish.identifiers.SnapshotId;
@@ -1673,32 +1674,14 @@ public class Batfish extends PluginConsumer implements IBatfish {
             .getStorageBase()
             .resolve(_settings.getContainer().getId())
             .resolve(BfConsts.RELPATH_NODE_ROLES_PATH);
+    NetworkId networkId = _settings.getContainer();
+    NodeRolesDataId nodeRolesDataId = _idResolver.getNodeRolesDataId(networkId);
     try {
-      return NodeRolesData.getNodeRoleDimension(
-          () -> getNodeRolesWrapped(_settings.getContainer()), dimension);
+      NodeRolesData nodeRolesData = _storage.loadNodeRoles(networkId, nodeRolesDataId);
+      return nodeRolesData.getNodeRoleDimension(dimension);
     } catch (IOException e) {
-      _logger.errorf("Could not read roles data from %s: %s", nodeRoleDataPath, e);
+      _logger.errorf("Could not read roles data: %s", e);
       return Optional.empty();
-    }
-  }
-
-  private NodeRolesData getNodeRolesWrapped(NetworkId networkId) {
-    if (!_storage.hasNodeRoles(networkId)) {
-      return new NodeRolesData(null, new Date().toInstant(), null);
-    }
-    try {
-      return BatfishObjectMapper.mapper()
-          .readValue(_storage.loadNodeRoles(networkId), NodeRolesData.class);
-    } catch (IOException e) {
-      throw new BatfishException("Error reading node roles", e);
-    }
-  }
-
-  private void writeNodeRolesWrapped(NodeRolesData nodeRolesData, NetworkId networkId) {
-    try {
-      _storage.storeNodeRoles(nodeRolesData, networkId);
-    } catch (IOException e) {
-      throw new BatfishException("Error writing node roles", e);
     }
   }
 
