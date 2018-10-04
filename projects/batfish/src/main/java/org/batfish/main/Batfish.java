@@ -169,7 +169,7 @@ import org.batfish.identifiers.FileBasedIdResolver;
 import org.batfish.identifiers.IdResolver;
 import org.batfish.identifiers.IssueSettingsId;
 import org.batfish.identifiers.NetworkId;
-import org.batfish.identifiers.NodeRolesDataId;
+import org.batfish.identifiers.NodeRolesId;
 import org.batfish.identifiers.QuestionId;
 import org.batfish.identifiers.QuestionSettingsId;
 import org.batfish.identifiers.SnapshotId;
@@ -1652,8 +1652,12 @@ public class Batfish extends PluginConsumer implements IBatfish {
   @Override
   public NodeRolesData getNodeRolesData() {
     try {
+      NodeRolesId snapshotNodeRolesId = updateSnapshotNodeRoles();
+      if (snapshotNodeRolesId == null) {
+        return null;
+      }
       return BatfishObjectMapper.mapper()
-          .readValue(_storage.loadNodeRoles(_settings.getContainer()), NodeRolesData.class);
+          .readValue(_storage.loadNodeRoles(snapshotNodeRolesId), NodeRolesData.class);
     } catch (IOException e) {
       _logger.errorf("Could not read roles data: %s", e);
       return null;
@@ -1669,15 +1673,8 @@ public class Batfish extends PluginConsumer implements IBatfish {
    */
   @Override
   public Optional<NodeRoleDimension> getNodeRoleDimension(@Nullable String dimension) {
-    Path nodeRoleDataPath =
-        _settings
-            .getStorageBase()
-            .resolve(_settings.getContainer().getId())
-            .resolve(BfConsts.RELPATH_NODE_ROLES_PATH);
-    NetworkId networkId = _settings.getContainer();
-    NodeRolesDataId nodeRolesDataId = _idResolver.getNodeRolesDataId(networkId);
     try {
-      NodeRolesData nodeRolesData = _storage.loadNodeRoles(networkId, nodeRolesDataId);
+      NodeRolesData nodeRolesData = getNodeRolesData();
       return nodeRolesData.getNodeRoleDimension(dimension);
     } catch (IOException e) {
       _logger.errorf("Could not read roles data: %s", e);
@@ -3832,27 +3829,36 @@ public class Batfish extends PluginConsumer implements IBatfish {
         envTopology,
         "environment topology");
 
-    // Compute new auto role data and updates existing auto data with it
-    SortedSet<NodeRoleDimension> autoRoles =
-        new InferRoles(configurations.keySet(), envTopology).inferRoles();
-    Path nodeRoleDataPath =
-        _settings
-            .getStorageBase()
-            .resolve(_settings.getContainer().getId())
-            .resolve(BfConsts.RELPATH_NODE_ROLES_PATH);
-    try {
-      NetworkId networkId = _settings.getContainer();
-      NodeRolesData.mergeNodeRoleDimensions(
-          () -> getNodeRolesWrapped(networkId),
-          nodeRolesData -> writeNodeRolesWrapped(nodeRolesData, networkId),
-          autoRoles,
-          null,
-          true);
-    } catch (IOException e) {
-      _logger.warnf("Could not update node roles in %s: %s", nodeRoleDataPath, e);
-    }
-
+    updateSnapshotNodeRoles();
     return answer;
+  }
+
+  private @Nullable NodeRolesId updateSnapshotNodeRoles() {
+    // Compute new auto role data and updates existing auto data with it
+    NetworkId networkId = _settings.getContainer();
+    SnapshotId snapshotId = _settings.getTestrig();
+    NodeRolesId networkNodeRolesId = _idResolver.getNetworkNodeRolesId(networkId);
+    NodeRolesId snapshotNodeRolesId =
+        _idResolver.getSnapshotNodeRolesId(networkId, snapshotId, networkNodeRolesId);
+    if (_storage.hasNodeRoles(snapshotNodeRolesId)) {
+      return snapshotNodeRolesId;
+    }
+    Set<String> nodeNames = loadConfigurations().keySet();
+    Topology envTopology = getEnvironmentTopology();
+
+    SortedSet<NodeRoleDimension> autoRoles = new InferRoles(nodeNames, envTopology).inferRoles();
+    try {
+      NodeRolesData networkNodeRoles =
+          BatfishObjectMapper.mapper()
+              .readValue(_storage.loadNodeRoles(networkNodeRolesId), NodeRolesData.class);
+      NodeRolesData snapshotNodeRoles =
+          networkNodeRoles.mergeNodeRoleDimensions(autoRoles, null, true);
+      _storage.storeNodeRoles(snapshotNodeRoles, snapshotNodeRolesId);
+      return snapshotNodeRolesId;
+    } catch (IOException e) {
+      _logger.warnf("Could not update node roles: %s", e);
+      return null;
+    }
   }
 
   private void serializeNetworkConfigs(

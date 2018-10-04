@@ -48,9 +48,9 @@ public interface IdResolver {
   @Nonnull
   NetworkId getNetworkId(String network);
 
-  /** Retrieve the current {@link NodeRolesDataId} for {@code networkId}. */
+  /** Retrieve the current {@link NodeRolesId} for {@code networkId}. */
   @Nonnull
-  NodeRolesDataId getNodeRolesDataId(NetworkId networkId);
+  NodeRolesId getNetworkNodeRolesId(NetworkId networkId);
 
   /**
    * Retrieve the {@link QuestionId} assigned to {@code question} under {@code networkId} and {@code
@@ -81,6 +81,10 @@ public interface IdResolver {
   /** Retrieve the name of the snapshot with the given ID */
   @Nonnull
   String getSnapshotName(NetworkId networkId, SnapshotId snapshotId);
+
+  /** Retrieve the {@link NodeRolesId} corresponding to the provided input IDs. */
+  @Nonnull NodeRolesId getSnapshotNodeRolesId(
+      NetworkId networkId, SnapshotId snapshotId, NodeRolesId networkNodeRolesId);
 
   /**
    * Return {@code true} iff some {@link AnalysisId} is assigned to {@code analysis} under {@code

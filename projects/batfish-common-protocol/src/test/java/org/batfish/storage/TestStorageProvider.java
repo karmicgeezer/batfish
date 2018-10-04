@@ -16,6 +16,7 @@ import org.batfish.identifiers.AnalysisId;
 import org.batfish.identifiers.AnswerId;
 import org.batfish.identifiers.IssueSettingsId;
 import org.batfish.identifiers.NetworkId;
+import org.batfish.identifiers.NodeRolesId;
 import org.batfish.identifiers.QuestionId;
 import org.batfish.identifiers.SnapshotId;
 import org.batfish.role.NodeRolesData;
@@ -197,19 +198,19 @@ public class TestStorageProvider implements StorageProvider {
   }
 
   @Override
-  public void storeNodeRoles(NodeRolesData nodeRolesData, NetworkId networkId) {
+  public void storeNodeRoles(NodeRolesData nodeRolesData, NodeRolesId nodeRolesId) {
     throw new UnsupportedOperationException(
         "no implementation for generated method"); // TODO Auto-generated method stub
   }
 
   @Override
-  public String loadNodeRoles(NetworkId networkId) throws FileNotFoundException, IOException {
+  public String loadNodeRoles(NodeRolesId nodeRolesId) throws FileNotFoundException, IOException {
     throw new UnsupportedOperationException(
         "no implementation for generated method"); // TODO Auto-generated method stub
   }
 
   @Override
-  public boolean hasNodeRoles(NetworkId networkId) {
+  public boolean hasNodeRoles(NodeRolesId nodeRolesId) {
     throw new UnsupportedOperationException(
         "no implementation for generated method"); // TODO Auto-generated method stub
   }

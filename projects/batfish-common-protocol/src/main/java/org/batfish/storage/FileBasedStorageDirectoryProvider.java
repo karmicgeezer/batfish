@@ -16,6 +16,8 @@ import org.batfish.identifiers.SnapshotId;
 @ParametersAreNonnullByDefault
 public class FileBasedStorageDirectoryProvider {
 
+  private static final String RELPATH_NODE_ROLES_DIR = "node_roles";
+
   private final Path _baseDir;
 
   public FileBasedStorageDirectoryProvider(Path baseDir) {
@@ -90,6 +92,10 @@ public class FileBasedStorageDirectoryProvider {
 
   public @Nonnull Path getNetworkSettingsDir(NetworkId network) {
     return getNetworkDir(network).resolve(BfConsts.RELPATH_CONTAINER_SETTINGS);
+  }
+
+  public Path getNodeRolesDir() {
+    return _baseDir.resolve(RELPATH_NODE_ROLES_DIR);
   }
 
   public @Nonnull Path getQuestionDir(

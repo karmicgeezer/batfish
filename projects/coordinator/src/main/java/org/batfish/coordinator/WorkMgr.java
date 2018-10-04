@@ -86,6 +86,7 @@ import org.batfish.coordinator.WorkDetails.WorkType;
 import org.batfish.coordinator.WorkQueueMgr.QueueType;
 import org.batfish.coordinator.config.Settings;
 import org.batfish.coordinator.id.IdManager;
+import org.batfish.coordinator.resources.NodeRoleDimensionBean;
 import org.batfish.datamodel.AnalysisMetadata;
 import org.batfish.datamodel.TestrigMetadata;
 import org.batfish.datamodel.answers.Answer;
@@ -119,10 +120,12 @@ import org.batfish.identifiers.AnalysisId;
 import org.batfish.identifiers.AnswerId;
 import org.batfish.identifiers.IssueSettingsId;
 import org.batfish.identifiers.NetworkId;
+import org.batfish.identifiers.NodeRolesId;
 import org.batfish.identifiers.QuestionId;
 import org.batfish.identifiers.QuestionSettingsId;
 import org.batfish.identifiers.SnapshotId;
 import org.batfish.referencelibrary.ReferenceLibrary;
+import org.batfish.role.NodeRoleDimension;
 import org.batfish.role.NodeRolesData;
 import org.batfish.storage.FileBasedStorageDirectoryProvider;
 import org.batfish.storage.StorageProvider;
@@ -378,7 +381,7 @@ public class WorkMgr extends AbstractCoordinator {
               "Snapshot name should be supplied for 'NODE' autoCompletion");
           List<AutocompleteSuggestion> suggestions =
               NodesSpecifier.autoComplete(
-                  query, getNodes(container, testrig), getNodeRolesData(container));
+                  query, getNodes(container, testrig), getNodeRolesData(container, testrig));
           return suggestions.subList(0, Integer.min(suggestions.size(), maxSuggestions));
         }
       case NODE_PROPERTY:
@@ -2259,29 +2262,55 @@ public class WorkMgr extends AbstractCoordinator {
     _storage.storeNodeRoles(nodeRolesData, networkId);
   }
 
+  
   /**
-   * Reads the {@link NodeRolesData} object for the provided network. If none exists, initializes a
+   * Creates a {@link NodeRoleDimensionBean} from the given container and dimension. It first gets
+   * the NodeRolesDataBean and finds the right dimension in it.
+   *
+   * @returns A NodeRoleDimensionBean object or null if the requested dimension is not found
+   */
+  static NodeRoleDimensionBean create(String container, String dimension) throws IOException {
+    Optional<String> snapshot = Main.getWorkMgr().getLatestTestrig(container);
+    if (!snapshot.isPresent()) {
+      return null;
+    }
+    NodeRolesData nodeRolesData = Main.getWorkMgr().getNodeRolesData(container, snapshot.get());
+    Optional<NodeRoleDimension> optDim = nodeRolesData.getNodeRoleDimension(dimension);
+    if (!optDim.isPresent()) {
+      return null;
+    }
+    Set<String> nodes =
+        snapshot.isPresent()
+            ? Main.getWorkMgr().getNodes(container, snapshot.get())
+            : new TreeSet<>();
+    return new NodeRoleDimensionBean(optDim.get(), snapshot.orElse(null), nodes);
+  }
+
+
+  
+  
+  /**
+   * Reads the {@link NodeRolesData} object for the provided network and snapshot. If none exists, initializes a
    * new object.
    *
    * @param network The name of the network
+   * @param snapshot 
    * @return The read data
    * @throws IOException If there is an error
    */
-  public NodeRolesData getNodeRolesData(String network) throws IOException {
+  public NodeRolesData getNodeRolesData(String network, String snapshot) throws IOException {
     NetworkId networkId = _idManager.getNetworkId(network);
-    if (_storage.hasNodeRoles(networkId)) {
-      return BatfishObjectMapper.mapper()
-          .readValue(_storage.loadNodeRoles(networkId), NodeRolesData.class);
-    } else {
-      return new NodeRolesData(null, new Date().toInstant(), null);
+    SnapshotId snapshotId = _idManager.getSnapshotId(snapshot, networkId);
+    if (!_idManager.hasNetworkNodeRolesId(networkId)) {
+      return new NodeRolesData(null, null);
     }
-  }
-
-  private NodeRolesData getNodeRolesDataWrapped(String network) {
-    try {
-      return getNodeRolesData(network);
-    } catch (IOException e) {
-      throw new BatfishException("error reading node roles", e);
+    NodeRolesId networkNodeRolesId = _idManager.getNetworkNodeRolesId(networkId);
+    NodeRolesId snapshotNodeRolesId = _idManager.getSnapshotNodeRolesId(networkId,snapshotId, networkNodeRolesId);
+    if (!_storage.hasNodeRoles(snapshotNodeRolesId)) {
+      return new NodeRolesData(null, null);
     }
+    return BatfishObjectMapper
+        .mapper()
+        .readValue(_storage.loadNodeRoles(snapshotNodeRolesId), NodeRolesData.class);
   }
 }

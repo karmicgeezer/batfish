@@ -46,26 +46,6 @@ public class NodeRoleDimensionBean {
     this.type = type;
   }
 
-  /**
-   * Creates a {@link NodeRoleDimensionBean} from the given container and dimension. It first gets
-   * the NodeRolesDataBean and finds the right dimension in it.
-   *
-   * @returns A NodeRoleDimensionBean object or null if the requested dimension is not found
-   */
-  static NodeRoleDimensionBean create(String container, String dimension) throws IOException {
-    NodeRolesData nodeRolesData = Main.getWorkMgr().getNodeRolesData(container);
-    Optional<NodeRoleDimension> optDim = nodeRolesData.getNodeRoleDimension(dimension);
-    if (!optDim.isPresent()) {
-      return null;
-    }
-    Optional<String> snapshot = Main.getWorkMgr().getLatestTestrig(container);
-    Set<String> nodes =
-        snapshot.isPresent()
-            ? Main.getWorkMgr().getNodes(container, snapshot.get())
-            : new TreeSet<>();
-    return new NodeRoleDimensionBean(optDim.get(), snapshot.orElse(null), nodes);
-  }
-
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof NodeRoleDimensionBean)) {

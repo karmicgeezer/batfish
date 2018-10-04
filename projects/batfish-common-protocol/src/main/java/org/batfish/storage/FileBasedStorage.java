@@ -54,6 +54,7 @@ import org.batfish.identifiers.AnalysisId;
 import org.batfish.identifiers.AnswerId;
 import org.batfish.identifiers.IssueSettingsId;
 import org.batfish.identifiers.NetworkId;
+import org.batfish.identifiers.NodeRolesId;
 import org.batfish.identifiers.QuestionId;
 import org.batfish.identifiers.SnapshotId;
 import org.batfish.role.NodeRolesData;
@@ -594,23 +595,23 @@ public final class FileBasedStorage implements StorageProvider {
   }
 
   @Override
-  public void storeNodeRoles(NodeRolesData nodeRolesData, NetworkId networkId) throws IOException {
+  public void storeNodeRoles(NodeRolesData nodeRolesData, NodeRolesId nodeRolesId) throws IOException {
     FileUtils.write(
-        getNodeRolesPath(networkId).toFile(), BatfishObjectMapper.writePrettyString(nodeRolesData));
+        getNodeRolesPath(nodeRolesId).toFile(), BatfishObjectMapper.writePrettyString(nodeRolesData));
   }
 
-  private @Nonnull Path getNodeRolesPath(NetworkId networkId) {
-    return _d.getNetworkDir(networkId).resolve(BfConsts.RELPATH_NODE_ROLES_PATH);
-  }
-
-  @Override
-  public String loadNodeRoles(NetworkId networkId) throws FileNotFoundException, IOException {
-    return FileUtils.readFileToString(getNodeRolesPath(networkId).toFile());
+  private @Nonnull Path getNodeRolesPath(NodeRolesId nodeRolesId) {
+    return _d.getNodeRolesDir().resolve(String.format("%s%s", nodeRolesId.getId(), ".json"));
   }
 
   @Override
-  public boolean hasNodeRoles(NetworkId networkId) {
-    return Files.exists(getNodeRolesPath(networkId));
+  public String loadNodeRoles(NodeRolesId nodeRolesId) throws FileNotFoundException, IOException {
+    return FileUtils.readFileToString(getNodeRolesPath(nodeRolesId).toFile());
+  }
+
+  @Override
+  public boolean hasNodeRoles(NodeRolesId nodeRolesId) {
+    return Files.exists(getNodeRolesPath(nodeRolesId));
   }
 
   @Override
